@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="author" content="Apple Inc.">
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    
+    <title>Collection Types — The Swift Programming Language (Swift 5.4)</title>
+    
+    <link rel="license" href="https://docs.swift.org/LICENSE.txt">
+    <link rel="stylesheet" media="all" href="./Strings and Characters — The Swift Programming Language (Swift 5.4)_files/application.css">
+    <link rel="stylesheet" media="all" href="./Strings and Characters — The Swift Programming Language (Swift 5.4)_files/tspl.css">
+    <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" type="image/vnd.microsoft.icon" href="https://docs.swift.org/favicon.ico">
+    <link rel="apple-touch-icon" href="https://docs.swift.org/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://docs.swift.org/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://docs.swift.org/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://docs.swift.org/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://docs.swift.org/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://docs.swift.org/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://docs.swift.org/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://docs.swift.org/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://docs.swift.org/apple-touch-icon-180x180.png">
+    <link rel="mask-icon" href="https://docs.swift.org/assets/images/icon-swift.svg" color="#F05339"> 
+  </head>
+  <body>
+
+
+<nav role="navigation">
+    <header role="banner">
+      <h1 id="logo">
+        <a href="https://swift.org/" title="Swift.org" role="img" aria-label="Swift.org">
+          Swift.org
+        </a>
+      </h1>
+    </header>
+
+    <div id="menu-toggle" class="menu-toggle open"></div>
+
+    <h2>The Swift Programming Language<div>Swift 5.4</div></h2>
+
+    <ul>
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="https://docs.swift.org/swift-book/">Welcome to Swift</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html">Language Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html">The Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/BasicOperators.html">Basic Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html">Strings and Characters</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#">Collection Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/Functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/Closures.html">Closures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html">Enumerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html">Structures and Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/Properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/Methods.html">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/Subscripts.html">Subscripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/Inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/Initialization.html">Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/Deinitialization.html">Deinitialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/OptionalChaining.html">Optional Chaining</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/ErrorHandling.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/TypeCasting.html">Type Casting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/NestedTypes.html">Nested Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/Extensions.html">Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/Protocols.html">Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/Generics.html">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/OpaqueTypes.html">Opaque Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html">Automatic Reference Counting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/MemorySafety.html">Memory Safety</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/AccessControl.html">Access Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/AdvancedOperators.html">Advanced Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.swift.org/swift-book/ReferenceManual/AboutTheLanguageReference.html">Language Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.swift.org/swift-book/RevisionHistory/RevisionHistory.html">Revision History</a></li>
+</ul>
+
+    <li class="toctree-l1 return"><a class="reference internal" href="https://swift.org/">← Return to Swift.org</a></li>
+    </ul>
+</nav>
+
+
+
+
+<main role="main">
+    <article class="page">
+        <menu id="bashful" type="toolbar">
+          <div class="inner">
+            <menuitem id="jump_to" class="menu-bar-item closed">
+            <span id="jump_to_toggle">On This Page</span>
+            <div class="chevron">
+                <div class="chevy chevron-left"></div>
+                <div class="chevy chevron-right"></div>
+            </div>
+            <menu type="list" class="details">
+                <ul>
+<li><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#">Collection Types</a><ul>
+<li><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID106">Mutability of Collections</a></li>
+<li><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID107">Arrays</a><ul>
+<li><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID108">Array Type Shorthand Syntax</a></li>
+<li><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID500">Creating an Empty Array</a></li>
+<li><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID501">Creating an Array with a Default Value</a></li>
+<li><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID502">Creating an Array by Adding Two Arrays Together</a></li>
+<li><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID109">Creating an Array with an Array Literal</a></li>
+<li><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID110">Accessing and Modifying an Array</a></li>
+<li><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID111">Iterating Over an Array</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID484">Sets</a><ul>
+<li><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID493">Hash Values for Set Types</a></li>
+<li><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID485">Set Type Syntax</a></li>
+<li><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID503">Creating and Initializing an Empty Set</a></li>
+<li><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID504">Creating a Set with an Array Literal</a></li>
+<li><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID488">Accessing and Modifying a Set</a></li>
+<li><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID489">Iterating Over a Set</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID490">Performing Set Operations</a><ul>
+<li><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID505">Fundamental Set Operations</a></li>
+<li><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID506">Set Membership and Equality</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID113">Dictionaries</a><ul>
+<li><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID114">Dictionary Type Shorthand Syntax</a></li>
+<li><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID118">Creating an Empty Dictionary</a></li>
+<li><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID507">Creating a Dictionary with a Dictionary Literal</a></li>
+<li><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID116">Accessing and Modifying a Dictionary</a></li>
+<li><a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID117">Iterating Over a Dictionary</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </menu>
+            </menuitem>
+          </div>
+        </menu>
+
+        
+  <div class="section" id="collection-types">
+<h1>Collection Types<a class="headerlink" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#collection-types" title="Permalink to this headline">¶</a></h1>
+<p>Swift provides three primary <em>collection types</em>, known as arrays, sets, and dictionaries, for storing collections of values. Arrays are ordered collections of values. Sets are unordered collections of unique values. Dictionaries are unordered collections of key-value associations.</p>
+<img alt="../_images/CollectionTypes_intro_2x.png" class="align-center" src="https://docs.swift.org/swift-book/_images/CollectionTypes_intro_2x.png" style="width: 670px;">
+<p>Arrays, sets, and dictionaries in Swift are always clear about the types of values and keys that they can store. This means that you can’t insert a value of the wrong type into a collection by mistake. It also means you can be confident about the type of values you will retrieve from a collection.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Swift’s array, set, and dictionary types are implemented as <em>generic collections</em>. For more about generic types and collections, see <a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/Generics.html"><span class="doc">Generics</span></a>.</p>
+</div>
+<div class="section" id="ID106">
+<h2>Mutability of Collections<a class="headerlink" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID106" title="Permalink to this headline">¶</a></h2>
+<p>If you create an array, a set, or a dictionary, and assign it to a variable, the collection that’s created will be <em>mutable</em>. This means that you can change (or <em>mutate</em>) the collection after it’s created by adding, removing, or changing items in the collection. If you assign an array, a set, or a dictionary to a constant, that collection is <em>immutable</em>, and its size and contents can’t be changed.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It’s good practice to create immutable collections in all cases where the collection doesn’t need to change. Doing so makes it easier for you to reason about your code and enables the Swift compiler to optimize the performance of the collections you create.</p>
+</div>
+</div>
+<div class="section" id="ID107">
+<h2>Arrays<a class="headerlink" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID107" title="Permalink to this headline">¶</a></h2>
+<p>An <em>array</em> stores values of the same type in an ordered list. The same value can appear in an array multiple times at different positions.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Swift’s <code class="docutils literal notranslate"><span class="pre">Array</span></code> type is bridged to Foundation’s <code class="docutils literal notranslate"><span class="pre">NSArray</span></code> class.</p>
+<p class="last">For more information about using <code class="docutils literal notranslate"><span class="pre">Array</span></code> with Foundation and Cocoa, see <a class="reference external" href="https://developer.apple.com/documentation/swift/array#2846730">Bridging Between Array and NSArray</a>.</p>
+</div>
+<div class="section" id="ID108">
+<h3>Array Type Shorthand Syntax<a class="headerlink" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID108" title="Permalink to this headline">¶</a></h3>
+<p>The type of a Swift array is written in full as <code class="docutils literal notranslate"><span class="pre">Array&lt;Element&gt;</span></code>, where <code class="docutils literal notranslate"><span class="pre">Element</span></code> is the type of values the array is allowed to store. You can also write the type of an array in shorthand form as <code class="docutils literal notranslate"><span class="pre">[Element]</span></code>. Although the two forms are functionally identical, the shorthand form is preferred and is used throughout this guide when referring to the type of an array.</p>
+</div>
+<div class="section" id="ID500">
+<h3>Creating an Empty Array<a class="headerlink" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID500" title="Permalink to this headline">¶</a></h3>
+<p>You can create an empty array of a certain type using initializer syntax:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">someInts</span> = [<span class="nv">Int</span>]()
+</li><li><span class="nv">print</span>(<span class="s">"someInts is of type [Int] with </span>\<span class="p">(</span><span class="nv">someInts</span>.<span class="nv">count</span><span class="p">)</span><span class="s"> items."</span>)
+</li><li><span class="c">// Prints "someInts is of type [Int] with 0 items."</span>
+</li></ol></div></div></div>
+<p>Note that the type of the <code class="docutils literal notranslate"><span class="pre">someInts</span></code> variable is inferred to be <code class="docutils literal notranslate"><span class="pre">[Int]</span></code> from the type of the initializer.</p>
+<p>Alternatively, if the context already provides type information, such as a function argument or an already typed variable or constant, you can create an empty array with an empty array literal, which is written as <code class="docutils literal notranslate"><span class="pre">[]</span></code> (an empty pair of square brackets):</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">someInts</span>.<span class="nv">append</span>(<span class="m">3</span>)
+</li><li><span class="c">// someInts now contains 1 value of type Int</span>
+</li><li><span class="nv">someInts</span> = []
+</li><li><span class="c">// someInts is now an empty array, but is still of type [Int]</span>
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID501">
+<h3>Creating an Array with a Default Value<a class="headerlink" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID501" title="Permalink to this headline">¶</a></h3>
+<p>Swift’s <code class="docutils literal notranslate"><span class="pre">Array</span></code> type also provides an initializer for creating an array of a certain size with all of its values set to the same default value. You pass this initializer a default value of the appropriate type (called <code class="docutils literal notranslate"><span class="pre">repeating</span></code>): and the number of times that value is repeated in the new array (called <code class="docutils literal notranslate"><span class="pre">count</span></code>):</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">threeDoubles</span> = <span class="nv">Array</span>(<span class="nv">repeating</span>: <span class="m">0.0</span>, <span class="nv">count</span>: <span class="m">3</span>)
+</li><li><span class="c">// threeDoubles is of type [Double], and equals [0.0, 0.0, 0.0]</span>
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID502">
+<h3>Creating an Array by Adding Two Arrays Together<a class="headerlink" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID502" title="Permalink to this headline">¶</a></h3>
+<p>You can create a new array by adding together two existing arrays with compatible types with the addition operator (<code class="docutils literal notranslate"><span class="pre">+</span></code>). The new array’s type is inferred from the type of the two arrays you add together:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">anotherThreeDoubles</span> = <span class="nv">Array</span>(<span class="nv">repeating</span>: <span class="m">2.5</span>, <span class="nv">count</span>: <span class="m">3</span>)
+</li><li><span class="c">// anotherThreeDoubles is of type [Double], and equals [2.5, 2.5, 2.5]</span>
+</li><li>
+</li><li><span class="k">var</span> <span class="nv">sixDoubles</span> = <span class="nv">threeDoubles</span> + <span class="nv">anotherThreeDoubles</span>
+</li><li><span class="c">// sixDoubles is inferred as [Double], and equals [0.0, 0.0, 0.0, 2.5, 2.5, 2.5]</span>
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID109">
+<h3>Creating an Array with an Array Literal<a class="headerlink" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID109" title="Permalink to this headline">¶</a></h3>
+<p>You can also initialize an array with an <em>array literal</em>, which is a shorthand way to write one or more values as an array collection. An array literal is written as a list of values, separated by commas, surrounded by a pair of square brackets:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li>[<span class="gi">value 1</span>, <span class="gi">value 2</span>, <span class="gi">value 3</span>]
+</li></ol></div></div></div>
+<p>The example below creates an array called <code class="docutils literal notranslate"><span class="pre">shoppingList</span></code> to store <code class="docutils literal notranslate"><span class="pre">String</span></code> values:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">shoppingList</span>: [<span class="nc">String</span>] = [<span class="s">"Eggs"</span>, <span class="s">"Milk"</span>]
+</li><li><span class="c">// shoppingList has been initialized with two initial items</span>
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">shoppingList</span></code> variable is declared as “an array of string values”, written as <code class="docutils literal notranslate"><span class="pre">[String]</span></code>. Because this particular array has specified a value type of <code class="docutils literal notranslate"><span class="pre">String</span></code>, it’s allowed to store <code class="docutils literal notranslate"><span class="pre">String</span></code> values only. Here, the <code class="docutils literal notranslate"><span class="pre">shoppingList</span></code> array is initialized with two <code class="docutils literal notranslate"><span class="pre">String</span></code> values (<code class="docutils literal notranslate"><span class="pre">"Eggs"</span></code> and <code class="docutils literal notranslate"><span class="pre">"Milk"</span></code>), written within an array literal.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <code class="docutils literal notranslate"><span class="pre">shoppingList</span></code> array is declared as a variable (with the <code class="docutils literal notranslate"><span class="pre">var</span></code> introducer) and not a constant (with the <code class="docutils literal notranslate"><span class="pre">let</span></code> introducer) because more items are added to the shopping list in the examples below.</p>
+</div>
+<p>In this case, the array literal contains two <code class="docutils literal notranslate"><span class="pre">String</span></code> values and nothing else. This matches the type of the <code class="docutils literal notranslate"><span class="pre">shoppingList</span></code> variable’s declaration (an array that can only contain <code class="docutils literal notranslate"><span class="pre">String</span></code> values), and so the assignment of the array literal is permitted as a way to initialize <code class="docutils literal notranslate"><span class="pre">shoppingList</span></code> with two initial items.</p>
+<p>Thanks to Swift’s type inference, you don’t have to write the type of the array if you’re initializing it with an array literal containing values of the same type. The initialization of <code class="docutils literal notranslate"><span class="pre">shoppingList</span></code> could have been written in a shorter form instead:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">shoppingList</span> = [<span class="s">"Eggs"</span>, <span class="s">"Milk"</span>]
+</li></ol></div></div></div>
+<p>Because all values in the array literal are of the same type, Swift can infer that <code class="docutils literal notranslate"><span class="pre">[String]</span></code> is the correct type to use for the <code class="docutils literal notranslate"><span class="pre">shoppingList</span></code> variable.</p>
+</div>
+<div class="section" id="ID110">
+<h3>Accessing and Modifying an Array<a class="headerlink" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID110" title="Permalink to this headline">¶</a></h3>
+<p>You access and modify an array through its methods and properties, or by using subscript syntax.</p>
+<p>To find out the number of items in an array, check its read-only <code class="docutils literal notranslate"><span class="pre">count</span></code> property:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">print</span>(<span class="s">"The shopping list contains </span>\<span class="p">(</span><span class="nv">shoppingList</span>.<span class="nv">count</span><span class="p">)</span><span class="s"> items."</span>)
+</li><li><span class="c">// Prints "The shopping list contains 2 items."</span>
+</li></ol></div></div></div>
+<p>Use the Boolean <code class="docutils literal notranslate"><span class="pre">isEmpty</span></code> property as a shortcut for checking whether the <code class="docutils literal notranslate"><span class="pre">count</span></code> property is equal to <code class="docutils literal notranslate"><span class="pre">0</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">if</span> <span class="nv">shoppingList</span>.<span class="nv">isEmpty</span> {
+</li><li>    <span class="nv">print</span>(<span class="s">"The shopping list is empty."</span>)
+</li><li>} <span class="k">else</span> {
+</li><li>    <span class="nv">print</span>(<span class="s">"The shopping list isn't empty."</span>)
+</li><li>}
+</li><li><span class="c">// Prints "The shopping list isn't empty."</span>
+</li></ol></div></div></div>
+<p>You can add a new item to the end of an array by calling the array’s <code class="docutils literal notranslate"><span class="pre">append(_:)</span></code> method:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">shoppingList</span>.<span class="nv">append</span>(<span class="s">"Flour"</span>)
+</li><li><span class="c">// shoppingList now contains 3 items, and someone is making pancakes</span>
+</li></ol></div></div></div>
+<p>Alternatively, append an array of one or more compatible items with the addition assignment operator (<code class="docutils literal notranslate"><span class="pre">+=</span></code>):</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">shoppingList</span> += [<span class="s">"Baking Powder"</span>]
+</li><li><span class="c">// shoppingList now contains 4 items</span>
+</li><li><span class="nv">shoppingList</span> += [<span class="s">"Chocolate Spread"</span>, <span class="s">"Cheese"</span>, <span class="s">"Butter"</span>]
+</li><li><span class="c">// shoppingList now contains 7 items</span>
+</li></ol></div></div></div>
+<p>Retrieve a value from the array by using <em>subscript syntax</em>, passing the index of the value you want to retrieve within square brackets immediately after the name of the array:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">firstItem</span> = <span class="nv">shoppingList</span>[<span class="m">0</span>]
+</li><li><span class="c">// firstItem is equal to "Eggs"</span>
+</li></ol></div></div></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The first item in the array has an index of <code class="docutils literal notranslate"><span class="pre">0</span></code>, not <code class="docutils literal notranslate"><span class="pre">1</span></code>. Arrays in Swift are always zero-indexed.</p>
+</div>
+<p>You can use subscript syntax to change an existing value at a given index:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">shoppingList</span>[<span class="m">0</span>] = <span class="s">"Six eggs"</span>
+</li><li><span class="c">// the first item in the list is now equal to "Six eggs" rather than "Eggs"</span>
+</li></ol></div></div></div>
+<p>When you use subscript syntax, the index you specify needs to be valid. For example, writing <code class="docutils literal notranslate"><span class="pre">shoppingList[shoppingList.count]</span> <span class="pre">=</span> <span class="pre">"Salt"</span></code> to try to append an item to the end of the array results in a runtime error.</p>
+<p>You can also use subscript syntax to change a range of values at once, even if the replacement set of values has a different length than the range you are replacing. The following example replaces <code class="docutils literal notranslate"><span class="pre">"Chocolate</span> <span class="pre">Spread"</span></code>, <code class="docutils literal notranslate"><span class="pre">"Cheese"</span></code>, and <code class="docutils literal notranslate"><span class="pre">"Butter"</span></code> with <code class="docutils literal notranslate"><span class="pre">"Bananas"</span></code> and <code class="docutils literal notranslate"><span class="pre">"Apples"</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">shoppingList</span>[<span class="m">4</span>...<span class="m">6</span>] = [<span class="s">"Bananas"</span>, <span class="s">"Apples"</span>]
+</li><li><span class="c">// shoppingList now contains 6 items</span>
+</li></ol></div></div></div>
+<p>To insert an item into the array at a specified index, call the array’s <code class="docutils literal notranslate"><span class="pre">insert(_:at:)</span></code> method:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">shoppingList</span>.<span class="nv">insert</span>(<span class="s">"Maple Syrup"</span>, <span class="nv">at</span>: <span class="m">0</span>)
+</li><li><span class="c">// shoppingList now contains 7 items</span>
+</li><li><span class="c">// "Maple Syrup" is now the first item in the list</span>
+</li></ol></div></div></div>
+<p>This call to the <code class="docutils literal notranslate"><span class="pre">insert(_:at:)</span></code> method inserts a new item with a value of <code class="docutils literal notranslate"><span class="pre">"Maple</span> <span class="pre">Syrup"</span></code> at the very beginning of the shopping list, indicated by an index of <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p>Similarly, you remove an item from the array with the <code class="docutils literal notranslate"><span class="pre">remove(at:)</span></code> method. This method removes the item at the specified index and returns the removed item (although you can ignore the returned value if you don’t need it):</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">mapleSyrup</span> = <span class="nv">shoppingList</span>.<span class="nv">remove</span>(<span class="nv">at</span>: <span class="m">0</span>)
+</li><li><span class="c">// the item that was at index 0 has just been removed</span>
+</li><li><span class="c">// shoppingList now contains 6 items, and no Maple Syrup</span>
+</li><li><span class="c">// the mapleSyrup constant is now equal to the removed "Maple Syrup" string</span>
+</li></ol></div></div></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you try to access or modify a value for an index that’s outside of an array’s existing bounds, you will trigger a runtime error. You can check that an index is valid before using it by comparing it to the array’s <code class="docutils literal notranslate"><span class="pre">count</span></code> property. The largest valid index in an array is <code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">-</span> <span class="pre">1</span></code> because arrays are indexed from zero—however, when <code class="docutils literal notranslate"><span class="pre">count</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code> (meaning the array is empty), there are no valid indexes.</p>
+</div>
+<p>Any gaps in an array are closed when an item is removed, and so the value at index <code class="docutils literal notranslate"><span class="pre">0</span></code> is once again equal to <code class="docutils literal notranslate"><span class="pre">"Six</span> <span class="pre">eggs"</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">firstItem</span> = <span class="nv">shoppingList</span>[<span class="m">0</span>]
+</li><li><span class="c">// firstItem is now equal to "Six eggs"</span>
+</li></ol></div></div></div>
+<p>If you want to remove the final item from an array, use the <code class="docutils literal notranslate"><span class="pre">removeLast()</span></code> method rather than the <code class="docutils literal notranslate"><span class="pre">remove(at:)</span></code> method to avoid the need to query the array’s <code class="docutils literal notranslate"><span class="pre">count</span></code> property. Like the <code class="docutils literal notranslate"><span class="pre">remove(at:)</span></code> method, <code class="docutils literal notranslate"><span class="pre">removeLast()</span></code> returns the removed item:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">apples</span> = <span class="nv">shoppingList</span>.<span class="nv">removeLast</span>()
+</li><li><span class="c">// the last item in the array has just been removed</span>
+</li><li><span class="c">// shoppingList now contains 5 items, and no apples</span>
+</li><li><span class="c">// the apples constant is now equal to the removed "Apples" string</span>
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID111">
+<h3>Iterating Over an Array<a class="headerlink" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID111" title="Permalink to this headline">¶</a></h3>
+<p>You can iterate over the entire set of values in an array with the <code class="docutils literal notranslate"><span class="pre">for</span></code>-<code class="docutils literal notranslate"><span class="pre">in</span></code> loop:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">for</span> <span class="nv">item</span> <span class="k">in</span> <span class="nv">shoppingList</span> {
+</li><li>    <span class="nv">print</span>(<span class="nv">item</span>)
+</li><li>}
+</li><li><span class="c">// Six eggs</span>
+</li><li><span class="c">// Milk</span>
+</li><li><span class="c">// Flour</span>
+</li><li><span class="c">// Baking Powder</span>
+</li><li><span class="c">// Bananas</span>
+</li></ol></div></div></div>
+<p>If you need the integer index of each item as well as its value, use the <code class="docutils literal notranslate"><span class="pre">enumerated()</span></code> method to iterate over the array instead. For each item in the array, the <code class="docutils literal notranslate"><span class="pre">enumerated()</span></code> method returns a tuple composed of an integer and the item. The integers start at zero and count up by one for each item; if you enumerate over a whole array, these integers match the items’ indices. You can decompose the tuple into temporary constants or variables as part of the iteration:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">for</span> (<span class="nv">index</span>, <span class="nv">value</span>) <span class="k">in</span> <span class="nv">shoppingList</span>.<span class="nv">enumerated</span>() {
+</li><li>    <span class="nv">print</span>(<span class="s">"Item </span>\<span class="p">(</span><span class="nv">index</span> + <span class="m">1</span><span class="p">)</span><span class="s">: </span>\<span class="p">(</span><span class="nv">value</span><span class="p">)</span><span class="s">"</span>)
+</li><li>}
+</li><li><span class="c">// Item 1: Six eggs</span>
+</li><li><span class="c">// Item 2: Milk</span>
+</li><li><span class="c">// Item 3: Flour</span>
+</li><li><span class="c">// Item 4: Baking Powder</span>
+</li><li><span class="c">// Item 5: Bananas</span>
+</li></ol></div></div></div>
+<p>For more about the <code class="docutils literal notranslate"><span class="pre">for</span></code>-<code class="docutils literal notranslate"><span class="pre">in</span></code> loop, see <a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID121"><span class="std std-ref">For-In Loops</span></a>.</p>
+</div>
+</div>
+<div class="section" id="ID484">
+<h2>Sets<a class="headerlink" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID484" title="Permalink to this headline">¶</a></h2>
+<p>A <em>set</em> stores distinct values of the same type in a collection with no defined ordering. You can use a set instead of an array when the order of items isn’t important, or when you need to ensure that an item only appears once.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Swift’s <code class="docutils literal notranslate"><span class="pre">Set</span></code> type is bridged to Foundation’s <code class="docutils literal notranslate"><span class="pre">NSSet</span></code> class.</p>
+<p class="last">For more information about using <code class="docutils literal notranslate"><span class="pre">Set</span></code> with Foundation and Cocoa, see <a class="reference external" href="https://developer.apple.com/documentation/swift/set#2845530">Bridging Between Set and NSSet</a>.</p>
+</div>
+<div class="section" id="ID493">
+<h3>Hash Values for Set Types<a class="headerlink" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID493" title="Permalink to this headline">¶</a></h3>
+<p>A type must be <em>hashable</em> in order to be stored in a set—that is, the type must provide a way to compute a <em>hash value</em> for itself. A hash value is an <code class="docutils literal notranslate"><span class="pre">Int</span></code> value that’s the same for all objects that compare equally, such that if <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">b</span></code>, the hash value of <code class="docutils literal notranslate"><span class="pre">a</span></code> is equal to the hash value of <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
+<p>All of Swift’s basic types (such as <code class="docutils literal notranslate"><span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">Int</span></code>, <code class="docutils literal notranslate"><span class="pre">Double</span></code>, and <code class="docutils literal notranslate"><span class="pre">Bool</span></code>) are hashable by default, and can be used as set value types or dictionary key types. Enumeration case values without associated values (as described in <a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html"><span class="doc">Enumerations</span></a>) are also hashable by default.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can use your own custom types as set value types or dictionary key types by making them conform to the <code class="docutils literal notranslate"><span class="pre">Hashable</span></code> protocol from the Swift standard library. For information about implementing the required <code class="docutils literal notranslate"><span class="pre">hash(into:)</span></code> method, see <a class="reference external" href="https://developer.apple.com/documentation/swift/hashable"><code class="docutils literal notranslate"><span class="pre">Hashable</span></code></a>. For information about conforming to protocols, see <a class="reference internal" href="https://docs.swift.org/swift-book/LanguageGuide/Protocols.html"><span class="doc">Protocols</span></a>.</p>
+</div>
+</div>
+<div class="section" id="ID485">
+<h3>Set Type Syntax<a class="headerlink" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID485" title="Permalink to this headline">¶</a></h3>
+<p>The type of a Swift set is written as <code class="docutils literal notranslate"><span class="pre">Set&lt;Element&gt;</span></code>, where <code class="docutils literal notranslate"><span class="pre">Element</span></code> is the type that the set is allowed to store. Unlike arrays, sets don’t have an equivalent shorthand form.</p>
+</div>
+<div class="section" id="ID503">
+<h3>Creating and Initializing an Empty Set<a class="headerlink" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID503" title="Permalink to this headline">¶</a></h3>
+<p>You can create an empty set of a certain type using initializer syntax:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">letters</span> = <span class="nv">Set</span>&lt;<span class="nc">Character</span>&gt;()
+</li><li><span class="nv">print</span>(<span class="s">"letters is of type Set&lt;Character&gt; with </span>\<span class="p">(</span><span class="nv">letters</span>.<span class="nv">count</span><span class="p">)</span><span class="s"> items."</span>)
+</li><li><span class="c">// Prints "letters is of type Set&lt;Character&gt; with 0 items."</span>
+</li></ol></div></div></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The type of the <code class="docutils literal notranslate"><span class="pre">letters</span></code> variable is inferred to be <code class="docutils literal notranslate"><span class="pre">Set&lt;Character&gt;</span></code>, from the type of the initializer.</p>
+</div>
+<p>Alternatively, if the context already provides type information, such as a function argument or an already typed variable or constant, you can create an empty set with an empty array literal:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">letters</span>.<span class="nv">insert</span>(<span class="s">"a"</span>)
+</li><li><span class="c">// letters now contains 1 value of type Character</span>
+</li><li><span class="nv">letters</span> = []
+</li><li><span class="c">// letters is now an empty set, but is still of type Set&lt;Character&gt;</span>
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID504">
+<h3>Creating a Set with an Array Literal<a class="headerlink" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID504" title="Permalink to this headline">¶</a></h3>
+<p>You can also initialize a set with an array literal, as a shorthand way to write one or more values as a set collection.</p>
+<p>The example below creates a set called <code class="docutils literal notranslate"><span class="pre">favoriteGenres</span></code> to store <code class="docutils literal notranslate"><span class="pre">String</span></code> values:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">favoriteGenres</span>: <span class="nc">Set</span>&lt;<span class="nc">String</span>&gt; = [<span class="s">"Rock"</span>, <span class="s">"Classical"</span>, <span class="s">"Hip hop"</span>]
+</li><li><span class="c">// favoriteGenres has been initialized with three initial items</span>
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">favoriteGenres</span></code> variable is declared as “a set of <code class="docutils literal notranslate"><span class="pre">String</span></code> values”, written as <code class="docutils literal notranslate"><span class="pre">Set&lt;String&gt;</span></code>. Because this particular set has specified a value type of <code class="docutils literal notranslate"><span class="pre">String</span></code>, it’s <em>only</em> allowed to store <code class="docutils literal notranslate"><span class="pre">String</span></code> values. Here, the <code class="docutils literal notranslate"><span class="pre">favoriteGenres</span></code> set is initialized with three <code class="docutils literal notranslate"><span class="pre">String</span></code> values (<code class="docutils literal notranslate"><span class="pre">"Rock"</span></code>, <code class="docutils literal notranslate"><span class="pre">"Classical"</span></code>, and <code class="docutils literal notranslate"><span class="pre">"Hip</span> <span class="pre">hop"</span></code>), written within an array literal.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <code class="docutils literal notranslate"><span class="pre">favoriteGenres</span></code> set is declared as a variable (with the <code class="docutils literal notranslate"><span class="pre">var</span></code> introducer) and not a constant (with the <code class="docutils literal notranslate"><span class="pre">let</span></code> introducer) because items are added and removed in the examples below.</p>
+</div>
+<p>A set type can’t be inferred from an array literal alone, so the type <code class="docutils literal notranslate"><span class="pre">Set</span></code> must be explicitly declared. However, because of Swift’s type inference, you don’t have to write the type of the set’s elements if you’re initializing it with an array literal that contains values of just one type. The initialization of <code class="docutils literal notranslate"><span class="pre">favoriteGenres</span></code> could have been written in a shorter form instead:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">favoriteGenres</span>: <span class="nc">Set</span> = [<span class="s">"Rock"</span>, <span class="s">"Classical"</span>, <span class="s">"Hip hop"</span>]
+</li></ol></div></div></div>
+<p>Because all values in the array literal are of the same type, Swift can infer that <code class="docutils literal notranslate"><span class="pre">Set&lt;String&gt;</span></code> is the correct type to use for the <code class="docutils literal notranslate"><span class="pre">favoriteGenres</span></code> variable.</p>
+</div>
+<div class="section" id="ID488">
+<h3>Accessing and Modifying a Set<a class="headerlink" href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID488" title="Permalink to this headline">¶</a></h3>
+<p>You access and modify a set through its methods and properties.</p>
+<p>To find out the number of items in a set, check its read-only <code class="docutils literal notranslate"><span class="pre">count</span></code> property:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">print</span>(<span class="s">"I have </span>\<span class="p">(</span><span class="nv">favoriteGenres</span>.<span class="nv">count</span><span class="p">)</span><span class="s"> favorite music genres."</span>)
+</li><li><span class="c">// Prints "I have 3 favorite music genres."</span>
+</li></ol></div></div></div>
+<p>Use the Boolean <code class="docutils literal notranslate"><span class="pre">isEmpty</span></code> property as a shortcut for checking whether the <code class="docutils literal notranslate"><span class="pre">count</span></code> property is equal to <code class="docutils literal notranslate"><span class="pre">0</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">if</span> <span class="nv">favoriteGenres</span></li></ol></div></div></div></div></div></div></article></main></body></html>
