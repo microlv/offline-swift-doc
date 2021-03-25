@@ -1,0 +1,26 @@
+{
+  "name": "offline-swift-doc",
+  "version": "1.0.0",
+  "description": "offline for swift doc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/microlv/offline-swift-doc.git"
+  },
+  "keywords": [
+    "offline",
+    "swift",
+    "swift-api",
+    "swift-doc",
+    "doc"
+  ],
+  "author": "andy.lv@live.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/microlv/offline-swift-doc/issues"
+  },
+  "homepage": "https://github.com/microlv/offline-swift-doc#readme"
+}
